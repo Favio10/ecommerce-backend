@@ -18,4 +18,15 @@ exports.createProduct = async (req, res) => {
         console.log(error);
         res.status(500).json({ msg: 'Error en el servidor' });
     }
-}
+};
+
+// obtener todos los productos
+exports.getProducts = async (req, res) => {
+    try {
+        const products = await Product.findAll();
+        res.json(products);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: 'Error en el servidor' });
+    }
+};
